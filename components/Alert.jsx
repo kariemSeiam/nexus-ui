@@ -135,7 +135,7 @@ const AlertTitle = forwardRef(
   ({ children, className = '', ...props }, ref) => (
     <h5
       ref={ref}
-      className={cn('font-bold text-base leading-tight', className)}
+      className={cn('font-bold text-[var(--text-base)] leading-tight', className)}
       {...props}
     >
       {children}
@@ -152,7 +152,7 @@ const AlertDescription = forwardRef(
   ({ children, className = '', ...props }, ref) => (
     <div
       ref={ref}
-      className={cn('text-sm leading-relaxed opacity-90', className)}
+      className={cn('text-[var(--text-sm)] leading-relaxed opacity-90', className)}
       {...props}
     >
       {children}

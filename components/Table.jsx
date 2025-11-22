@@ -46,9 +46,9 @@ const Table = forwardRef(
     ref
   ) => {
     const sizeClasses = {
-      sm: '[&_th]:px-3 [&_th]:py-2 [&_td]:px-3 [&_td]:py-2 [&_th]:text-xs [&_td]:text-sm',
-      md: '[&_th]:px-4 [&_th]:py-3 [&_td]:px-4 [&_td]:py-3 [&_th]:text-sm [&_td]:text-base',
-      lg: '[&_th]:px-6 [&_th]:py-4 [&_td]:px-6 [&_td]:py-4 [&_th]:text-base [&_td]:text-lg',
+      sm: '[&_th]:px-2 [&_th]:py-2 [&_td]:px-2 [&_td]:py-2 [&_th]:text-[var(--text-xs)] [&_td]:text-[var(--text-sm)]',
+      md: '[&_th]:px-4 [&_th]:py-3 [&_td]:px-4 [&_td]:py-3 [&_th]:text-[var(--text-sm)] [&_td]:text-[var(--text-sm)]',
+      lg: '[&_th]:px-6 [&_th]:py-4 [&_td]:px-6 [&_td]:py-4 [&_th]:text-[var(--text-base)] [&_td]:text-[var(--text-base)]',
     };
 
     const variantClasses = {
@@ -62,7 +62,7 @@ const Table = forwardRef(
         <table
           ref={ref}
           className={cn(
-            'w-full caption-bottom text-sm',
+            'w-full caption-bottom',
             sizeClasses[size],
             variantClasses[variant],
             stickyHeader && '[&_thead]:sticky [&_thead]:top-0 [&_thead]:z-10 [&_thead]:bg-[var(--color-background)]'
@@ -269,7 +269,7 @@ const TableCaption = forwardRef(
     return (
       <caption
         ref={ref}
-        className={cn('mt-4 text-sm text-[var(--color-muted-foreground)]', className)}
+        className={cn('mt-4 text-[var(--text-xs)] text-[var(--color-muted-foreground)]', className)}
         {...props}
       >
         {children}

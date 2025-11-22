@@ -49,24 +49,20 @@ const Checkbox = forwardRef(
 
     const sizeClasses = {
       sm: {
-        container: 'min-h-[44px]',
+        container: 'min-h-[var(--touch-target-min)]',
         checkbox: 'w-4 h-4',
-        label: 'text-sm',
       },
       md: {
-        container: 'min-h-[44px]',
+        container: 'min-h-[var(--touch-target-min)]',
         checkbox: 'w-5 h-5',
-        label: 'text-base',
       },
       lg: {
         container: 'min-h-[48px]',
         checkbox: 'w-6 h-6',
-        label: 'text-lg',
       },
       xl: {
         container: 'min-h-[52px]',
         checkbox: 'w-7 h-7',
-        label: 'text-xl',
       },
     };
 
@@ -114,7 +110,7 @@ const Checkbox = forwardRef(
             disabled && 'cursor-not-allowed'
           )}
         >
-          <div className="relative flex items-center justify-center flex-shrink-0 min-w-[44px] min-h-[44px]">
+          <div className="relative flex items-center justify-center flex-shrink-0 min-w-[var(--touch-target-min)] min-h-[var(--touch-target-min)]">
             <input
               ref={combinedRef}
               type="checkbox"
@@ -152,11 +148,10 @@ const Checkbox = forwardRef(
             />
           </div>
           {label && (
-            <div className="flex-1 pt-2.5">
+            <div className="flex-1 pt-2">
               <span
                 className={cn(
-                  'font-medium',
-                  sizeClasses[size].label,
+                  'font-medium text-[var(--text-sm)]',
                   disabled && 'opacity-50',
                   error && 'text-[var(--color-error-600)]'
                 )}
@@ -166,7 +161,7 @@ const Checkbox = forwardRef(
               {error && errorText && (
                 <p
                   id="checkbox-error-text"
-                  className="mt-1 text-sm text-[var(--color-error-600)]"
+                  className="mt-2 text-[var(--text-xs)] text-[var(--color-error-600)]"
                   role="alert"
                 >
                   {errorText}
@@ -175,7 +170,7 @@ const Checkbox = forwardRef(
               {!error && helperText && (
                 <p
                   id="checkbox-helper-text"
-                  className="mt-1 text-sm text-[var(--color-muted-foreground)]"
+                  className="mt-2 text-[var(--text-xs)] text-[var(--color-muted-foreground)]"
                 >
                   {helperText}
                 </p>

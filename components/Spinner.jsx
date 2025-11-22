@@ -28,11 +28,11 @@ const Spinner = forwardRef(
     ref
   ) => {
     const sizeClasses = {
-      xs: 'w-4 h-4 border-2',
-      sm: 'w-6 h-6 border-2',
-      md: 'w-8 h-8 border-2',
-      lg: 'w-12 h-12 border-3',
-      xl: 'w-16 h-16 border-4',
+      xs: 'w-[var(--icon-xs)] h-[var(--icon-xs)] border-2',
+      sm: 'w-[var(--icon-sm)] h-[var(--icon-sm)] border-2',
+      md: 'w-[var(--icon-md)] h-[var(--icon-md)] border-2',
+      lg: 'w-[var(--icon-lg)] h-[var(--icon-lg)] border-3',
+      xl: 'w-[var(--icon-xl)] h-[var(--icon-xl)] border-4',
     };
 
     const variantClasses = {

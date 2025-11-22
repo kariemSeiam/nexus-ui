@@ -35,12 +35,12 @@ const Avatar = forwardRef(
     const [imageError, setImageError] = useState(false);
 
     const sizeClasses = {
-      xs: 'w-6 h-6 text-xs',
-      sm: 'w-8 h-8 text-sm',
-      md: 'w-10 h-10 text-base',
-      lg: 'w-12 h-12 text-lg',
-      xl: 'w-16 h-16 text-xl',
-      '2xl': 'w-20 h-20 text-2xl',
+      xs: 'w-[var(--avatar-xs)] h-[var(--avatar-xs)] text-[var(--text-2xs)]',
+      sm: 'w-[var(--avatar-sm)] h-[var(--avatar-sm)] text-[var(--text-xs)]',
+      md: 'w-[var(--avatar-md)] h-[var(--avatar-md)] text-[var(--text-sm)]',
+      lg: 'w-[var(--avatar-lg)] h-[var(--avatar-lg)] text-[var(--text-base)]',
+      xl: 'w-[var(--avatar-xl)] h-[var(--avatar-xl)] text-[var(--text-lg)]',
+      '2xl': 'w-[var(--avatar-2xl)] h-[var(--avatar-2xl)] text-[var(--text-2xl)]',
     };
 
     const statusClasses = {

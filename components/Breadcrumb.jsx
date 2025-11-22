@@ -35,9 +35,9 @@ const Breadcrumb = forwardRef(
     ref
   ) => {
     const sizeClasses = {
-      sm: 'text-sm',
-      md: 'text-base',
-      lg: 'text-lg',
+      sm: 'text-[var(--text-sm)]',
+      md: 'text-[var(--text-base)]',
+      lg: 'text-[var(--text-lg)]',
     };
 
     const defaultSeparator = (
@@ -76,12 +76,12 @@ const Breadcrumb = forwardRef(
         className={cn(sizeClasses[size], className)}
         {...props}
       >
-        <ol className="flex items-center flex-wrap gap-1">
+        <ol className="flex items-center flex-wrap gap-2">
           {displayedChildren.map((child, index) => {
             const isLast = index === displayedChildren.length - 1;
 
             return (
-              <li key={index} className="flex items-center gap-1">
+              <li key={index} className="flex items-center gap-2">
                 {React.cloneElement(child, {
                   size,
                   current: isLast || child.props.current,
@@ -121,13 +121,13 @@ const BreadcrumbItem = forwardRef(
     ref
   ) => {
     const sizeClasses = {
-      sm: 'min-h-[44px] py-2 px-1',
-      md: 'min-h-[44px] py-2.5 px-1.5',
-      lg: 'min-h-[48px] py-3 px-2',
+      sm: 'min-h-[44px] py-2 px-2',
+      md: 'min-h-[44px] py-3 px-2',
+      lg: 'min-h-[48px] py-4 px-2',
     };
 
     const baseClasses = cn(
-      'inline-flex items-center gap-1.5',
+      'inline-flex items-center gap-2',
       'transition-colors duration-200',
       'motion-reduce:transition-none',
       'focus-visible:outline-none',

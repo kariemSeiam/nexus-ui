@@ -199,7 +199,7 @@ const TooltipContentInternal = forwardRef(
           'absolute z-50 pointer-events-none',
           'bg-gray-900 text-white',
           'px-3 py-2 rounded-md',
-          'text-sm whitespace-nowrap',
+          'text-[var(--text-xs)] whitespace-nowrap',
           'shadow-lg',
           'animate-[tooltip-show_150ms_ease-out] motion-reduce:animate-none',
           placementClasses[placement],

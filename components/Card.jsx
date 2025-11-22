@@ -34,7 +34,8 @@ import { cn } from '../lib/utils';
  *
  * @typedef {Object} CardProps
  * @property {'default' | 'elevated' | 'outline' | 'flat' | 'gradient' | 'glassmorphism'} [variant='default'] - Card variant
- * @property {'none' | 'sm' | 'md' | 'lg' | 'xl'} [padding='md'] - Padding size
+ * @property {'none' | 'sm' | 'md' | 'lg'} [padding='md'] - Padding size (8pt grid)
+ * @property {'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full'} [maxWidth='none'] - Maximum width constraint
  * @property {boolean} [hoverable=false] - Add hover effect
  * @property {boolean} [clickable=false] - Make card clickable
  * @property {string} [className] - Additional CSS classes
@@ -45,6 +46,7 @@ const Card = forwardRef(
       children,
       variant = 'default',
       padding = 'md',
+      maxWidth = 'none',
       hoverable = false,
       clickable = false,
       className = '',
@@ -93,10 +95,19 @@ const Card = forwardRef(
 
     const paddingClasses = {
       none: '',
-      sm: 'p-3',
-      md: 'p-4',
-      lg: 'p-6',
-      xl: 'p-8',
+      sm: 'p-4',  // 16px - 8pt grid
+      md: 'p-6',  // 24px - 8pt grid (default)
+      lg: 'p-8',  // 32px - 8pt grid
+    };
+
+    const maxWidthClasses = {
+      none: '',
+      sm: 'max-w-[var(--container-sm)]',    // 384px
+      md: 'max-w-[var(--container-md)]',    // 448px
+      lg: 'max-w-[var(--container-lg)]',    // 512px
+      xl: 'max-w-[var(--container-xl)]',    // 576px
+      '2xl': 'max-w-[var(--container-2xl)]', // 672px
+      full: 'max-w-full',
     };
 
     const hoverClasses = hoverable
@@ -129,6 +140,7 @@ const Card = forwardRef(
           'rounded-xl overflow-hidden',
           variantClasses[variant],
           paddingClasses[padding],
+          maxWidthClasses[maxWidth],
           hoverClasses,
           clickableClasses,
           className
@@ -169,7 +181,7 @@ const CardTitle = forwardRef(
     <Component
       ref={ref}
       className={cn(
-        'text-2xl font-bold leading-tight tracking-tight',
+        'text-[var(--text-lg)] font-bold leading-tight tracking-tight',
         className
       )}
       {...props}
@@ -189,7 +201,7 @@ const CardDescription = forwardRef(
     <p
       ref={ref}
       className={cn(
-        'text-sm text-[var(--color-muted-foreground)]',
+        'text-[var(--text-sm)] text-[var(--color-muted-foreground)]',
         className
       )}
       {...props}

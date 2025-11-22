@@ -87,7 +87,7 @@ const Accordion = forwardRef(
           onValueChange: handleValueChange,
         }}
       >
-        <div ref={ref} className={cn('space-y-2', className)} {...props}>
+        <div ref={ref} className={cn('flex flex-col gap-2', className)} {...props}>
           {children}
         </div>
       </AccordionContext.Provider>
@@ -172,8 +172,8 @@ const AccordionTrigger = forwardRef(
         onKeyDown={handleKeyDown}
         className={cn(
           'flex items-center justify-between w-full',
-          'min-h-[44px] px-4 py-3',
-          'text-left font-medium',
+          'min-h-[44px] p-4',
+          'text-left font-medium text-[var(--text-base)]',
           'transition-all duration-200',
           'motion-reduce:transition-none',
           'focus-visible:outline-none',
@@ -234,7 +234,7 @@ const AccordionContent = forwardRef(
         )}
         {...props}
       >
-        <div className={cn('px-4 py-3 pt-0', className)}>
+        <div className={cn('px-4 pb-4 pt-0 text-[var(--text-sm)]', className)}>
           {children}
         </div>
       </div>

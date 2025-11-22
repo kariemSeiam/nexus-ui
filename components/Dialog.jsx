@@ -96,11 +96,11 @@ const DialogContent = forwardRef(
     const combinedRef = ref || contentRef;
 
     const sizeClasses = {
-      sm: 'max-w-sm',
-      md: 'max-w-md',
-      lg: 'max-w-lg',
-      xl: 'max-w-xl',
-      '2xl': 'max-w-2xl',
+      sm: 'max-w-[var(--dialog-sm)]',
+      md: 'max-w-[var(--dialog-md)]',
+      lg: 'max-w-[var(--dialog-lg)]',
+      xl: 'max-w-[var(--dialog-xl)]',
+      full: 'max-w-full',
     };
 
     useEffect(() => {
@@ -164,7 +164,7 @@ const DialogContent = forwardRef(
             'relative z-10 w-full',
             'bg-[var(--color-background)]',
             'rounded-lg shadow-xl',
-            'max-h-[90vh] overflow-y-auto',
+            'max-h-[calc(100vh-4rem)] overflow-y-auto',
             'animate-[dialog-show_200ms_ease-out] motion-reduce:animate-none',
             sizeClasses[size],
             className
@@ -186,7 +186,7 @@ const DialogHeader = forwardRef(
       <div
         ref={ref}
         className={cn(
-          'flex flex-col gap-2 p-6 pb-4',
+          'flex flex-col gap-4 p-6 pb-4',
           'border-b border-[var(--color-border)]',
           className
         )}
@@ -206,7 +206,7 @@ const DialogTitle = forwardRef(
       <h2
         ref={ref}
         className={cn(
-          'text-xl font-semibold text-[var(--color-foreground)]',
+          'text-[var(--text-2xl)] font-semibold text-[var(--color-foreground)]',
           className
         )}
         {...props}
@@ -225,7 +225,7 @@ const DialogDescription = forwardRef(
       <p
         ref={ref}
         className={cn(
-          'text-sm text-[var(--color-muted-foreground)]',
+          'text-[var(--text-sm)] text-[var(--color-muted-foreground)]',
           className
         )}
         {...props}
@@ -260,7 +260,7 @@ const DialogFooter = forwardRef(
       <div
         ref={ref}
         className={cn(
-          'flex items-center justify-end gap-2 p-6 pt-4',
+          'flex items-center justify-end gap-4 p-6 pt-4',
           'border-t border-[var(--color-border)]',
           className
         )}
