@@ -70,12 +70,14 @@ const Input = forwardRef(
       `,
     };
 
+    // Input heights following iOS HIG & Material Design 3 standards
+    // Font size minimum 16px to prevent iOS zoom
     const sizeClasses = {
-      xs: 'h-8 px-2 text-xs',
-      sm: 'h-9 px-3 text-sm',
-      md: 'h-11 px-4 text-base',
-      lg: 'h-12 px-5 text-lg',
-      xl: 'h-14 px-6 text-xl',
+      xs: 'h-8 px-3 text-[var(--text-sm)]',                       // 32px height, 14px text
+      sm: 'h-[var(--input-height-sm)] px-3 text-[var(--text-sm)]', // 36px height, 14px text
+      md: 'h-[var(--input-height-md)] px-4 text-[var(--text-base)]', // 40px height, 16px text (prevents iOS zoom)
+      lg: 'h-[var(--input-height-lg)] px-5 text-[var(--text-base)]', // 48px height, 16px text
+      xl: 'h-[var(--input-height-xl)] px-6 text-[var(--text-md)]',   // 56px height, 18px text
     };
 
     const stateClasses = error
@@ -84,12 +86,13 @@ const Input = forwardRef(
       ? 'border-[var(--color-success-500)] focus-visible:border-[var(--color-success-500)] focus-visible:ring-[var(--color-success-500)]/20'
       : '';
 
+    // Icon sizes following icon size tokens
     const iconSizes = {
-      xs: 14,
-      sm: 16,
-      md: 18,
-      lg: 20,
-      xl: 22,
+      xs: 12,  // --icon-xs
+      sm: 16,  // --icon-sm
+      md: 16,  // --icon-sm
+      lg: 20,  // --icon-md
+      xl: 24,  // --icon-lg
     };
 
     const renderIcon = (icon) => {
@@ -104,11 +107,11 @@ const Input = forwardRef(
     };
 
     return (
-      <div className="w-full">
+      <div className="w-full max-w-[var(--content-sm)]">
         {label && (
           <label
             className={cn(
-              'block text-sm font-medium mb-1.5',
+              'block text-[var(--text-sm)] font-medium mb-2',
               disabled ? 'opacity-50' : '',
               error ? 'text-[var(--color-error-600)]' : ''
             )}
@@ -159,7 +162,7 @@ const Input = forwardRef(
         {error && errorText && (
           <p
             id="error-text"
-            className="mt-1.5 text-sm text-[var(--color-error-600)]"
+            className="mt-2 text-[var(--text-xs)] text-[var(--color-error-600)]"
             role="alert"
           >
             {errorText}
@@ -168,7 +171,7 @@ const Input = forwardRef(
         {!error && helperText && (
           <p
             id="helper-text"
-            className="mt-1.5 text-sm text-[var(--color-muted-foreground)]"
+            className="mt-2 text-[var(--text-xs)] text-[var(--color-muted-foreground)]"
           >
             {helperText}
           </p>

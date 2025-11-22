@@ -168,20 +168,22 @@
                  "Ubuntu Mono", Menlo, Consolas, "Courier New", monospace;
     --font-arabic: "Tajawal", "Cairo", "Almarai", system-ui, sans-serif;
 
-    /* Font Sizes */
-    --text-xs: 0.75rem;      /* 12px */
-    --text-sm: 0.875rem;     /* 14px */
-    --text-base: 1rem;       /* 16px */
-    --text-lg: 1.125rem;     /* 18px */
-    --text-xl: 1.25rem;      /* 20px */
-    --text-2xl: 1.5rem;      /* 24px */
-    --text-3xl: 1.875rem;    /* 30px */
-    --text-4xl: 2.25rem;     /* 36px */
-    --text-5xl: 3rem;        /* 48px */
-    --text-6xl: 3.75rem;     /* 60px */
-    --text-7xl: 4.5rem;      /* 72px */
-    --text-8xl: 6rem;        /* 96px */
-    --text-9xl: 8rem;        /* 128px */
+    /* Font Sizes - Modular Scale */
+    --text-2xs: 0.64rem;     /* 10.24px - Micro text, captions */
+    --text-xs: 0.75rem;      /* 12px - Small labels, helper text */
+    --text-sm: 0.875rem;     /* 14px - Body small, secondary text */
+    --text-base: 1rem;       /* 16px - Body text, default */
+    --text-md: 1.125rem;     /* 18px - Body large, emphasized text */
+    --text-lg: 1.25rem;      /* 20px - Small headings, card titles */
+    --text-xl: 1.5rem;       /* 24px - H4, section titles */
+    --text-2xl: 1.875rem;    /* 30px - H3, modal titles */
+    --text-3xl: 2.25rem;     /* 36px - H2, page titles */
+    --text-4xl: 3rem;        /* 48px - H1, hero titles */
+    --text-5xl: 3.75rem;     /* 60px - Display, marketing */
+    --text-6xl: 4.5rem;      /* 72px */
+    --text-7xl: 6rem;        /* 96px */
+    --text-8xl: 8rem;        /* 128px */
+    --text-9xl: 10rem;       /* 160px */
 
     /* Line Heights */
     --leading-none: 1;
@@ -300,6 +302,75 @@
     --container-6xl: 72rem;   /* 1152px */
     --container-7xl: 80rem;   /* 1280px */
     --container-full: 100%;
+
+    /* ==================== COMPONENT SIZING - Material Design 3 & iOS HIG ==================== */
+
+    /* Button Heights (Following MD3 & iOS HIG standards) */
+    --button-height-xs: 2rem;      /* 32px - Compact, desktop only */
+    --button-height-sm: 2.25rem;   /* 36px - Small, desktop/tablet */
+    --button-height-md: 2.5rem;    /* 40px - Default, mobile-friendly */
+    --button-height-lg: 3rem;      /* 48px - Large, mobile primary (MD3 minimum) */
+    --button-height-xl: 3.5rem;    /* 56px - Extra large, hero CTAs */
+
+    /* Input Heights */
+    --input-height-sm: 2.25rem;    /* 36px */
+    --input-height-md: 2.5rem;     /* 40px - Default (minimum for mobile) */
+    --input-height-lg: 3rem;       /* 48px */
+    --input-height-xl: 3.5rem;     /* 56px */
+
+    /* Touch Target Sizes (WCAG 3.0, iOS HIG, Material Design 3) */
+    --touch-target-min: 2.5rem;    /* 40px - WCAG 3.0 minimum */
+    --touch-target-ios: 2.75rem;   /* 44px - iOS HIG minimum */
+    --touch-target-md3: 3rem;      /* 48px - Material Design 3 minimum */
+
+    /* Icon Sizes */
+    --icon-xs: 0.75rem;    /* 12px */
+    --icon-sm: 1rem;       /* 16px */
+    --icon-md: 1.25rem;    /* 20px */
+    --icon-lg: 1.5rem;     /* 24px */
+    --icon-xl: 2rem;       /* 32px */
+    --icon-2xl: 2.5rem;    /* 40px */
+
+    /* Avatar Sizes */
+    --avatar-xs: 1.5rem;   /* 24px - Inline mentions, small lists */
+    --avatar-sm: 2rem;     /* 32px - Comments, compact lists */
+    --avatar-md: 2.5rem;   /* 40px - Default, standard lists */
+    --avatar-lg: 3rem;     /* 48px - Profiles, cards */
+    --avatar-xl: 4rem;     /* 64px - Profile headers */
+    --avatar-2xl: 6rem;    /* 96px - Hero sections, large profiles */
+
+    /* Badge/Chip Heights */
+    --badge-height-xs: 1rem;       /* 16px */
+    --badge-height-sm: 1.25rem;    /* 20px */
+    --badge-height-md: 1.5rem;     /* 24px */
+    --badge-height-lg: 1.75rem;    /* 28px */
+
+    /* Slider Thumb Sizes (Material Design 3 spec) */
+    --slider-thumb-sm: 1rem;       /* 16px - Compact */
+    --slider-thumb-md: 1.25rem;    /* 20px - Default */
+    --slider-thumb-lg: 1.5rem;     /* 24px - Large */
+    --slider-thumb-active-sm: 1.25rem;  /* 20px - Hover/Active */
+    --slider-thumb-active-md: 1.5rem;   /* 24px */
+    --slider-thumb-active-lg: 1.75rem;  /* 28px */
+
+    /* Slider Track Heights */
+    --slider-track-sm: 0.25rem;    /* 4px */
+    --slider-track-md: 0.375rem;   /* 6px */
+    --slider-track-lg: 0.5rem;     /* 8px */
+
+    /* Modal/Dialog Max Sizes */
+    --dialog-sm: 28rem;    /* 448px - Small forms */
+    --dialog-md: 32rem;    /* 512px - Default */
+    --dialog-lg: 42rem;    /* 672px - Large forms */
+    --dialog-xl: 56rem;    /* 896px - Very large content */
+    --dialog-full: 100%;   /* Full screen */
+
+    /* Content Max Widths (prevent over-stretching) */
+    --content-sm: 40rem;   /* 640px - Forms, narrow content */
+    --content-md: 48rem;   /* 768px - Blog posts, articles */
+    --content-lg: 64rem;   /* 1024px - Standard content */
+    --content-xl: 80rem;   /* 1280px - Wide content (default) */
+    --content-2xl: 96rem;  /* 1536px - Ultra-wide (use sparingly) */
 
     /* ==================== MISC ==================== */
 

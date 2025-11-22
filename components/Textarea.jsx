@@ -78,12 +78,14 @@ const Textarea = forwardRef(
       `,
     };
 
+    // Textarea sizing following 8-point grid and typography scale
+    // Font size minimum 16px to prevent iOS zoom
     const sizeClasses = {
-      xs: 'px-2 py-1.5 text-xs',
-      sm: 'px-3 py-2 text-sm',
-      md: 'px-4 py-2.5 text-base',
-      lg: 'px-5 py-3 text-lg',
-      xl: 'px-6 py-3.5 text-xl',
+      xs: 'px-3 py-2 text-[var(--text-sm)]',     // 12px/8px padding, 14px text
+      sm: 'px-3 py-2 text-[var(--text-sm)]',     // 12px/8px padding, 14px text
+      md: 'px-4 py-3 text-[var(--text-base)]',   // 16px/12px padding, 16px text (prevents iOS zoom)
+      lg: 'px-5 py-3 text-[var(--text-base)]',   // 20px/12px padding, 16px text
+      xl: 'px-6 py-4 text-[var(--text-md)]',     // 24px/16px padding, 18px text
     };
 
     const stateClasses = error
@@ -117,11 +119,11 @@ const Textarea = forwardRef(
     };
 
     return (
-      <div className="w-full">
+      <div className="w-full max-w-[var(--content-md)]">
         {label && (
           <label
             className={cn(
-              'block text-sm font-medium mb-1.5',
+              'block text-[var(--text-sm)] font-medium mb-2',
               disabled ? 'opacity-50' : '',
               error ? 'text-[var(--color-error-600)]' : ''
             )}
@@ -159,12 +161,12 @@ const Textarea = forwardRef(
           )}
           {...props}
         />
-        <div className="flex justify-between items-start mt-1.5">
+        <div className="flex justify-between items-start mt-2">
           <div className="flex-1">
             {error && errorText && (
               <p
                 id="error-text"
-                className="text-sm text-[var(--color-error-600)]"
+                className="text-[var(--text-xs)] text-[var(--color-error-600)]"
                 role="alert"
               >
                 {errorText}
@@ -173,7 +175,7 @@ const Textarea = forwardRef(
             {!error && helperText && (
               <p
                 id="helper-text"
-                className="text-sm text-[var(--color-muted-foreground)]"
+                className="text-[var(--text-xs)] text-[var(--color-muted-foreground)]"
               >
                 {helperText}
               </p>
@@ -182,7 +184,7 @@ const Textarea = forwardRef(
           {(showCount || maxLength) && (
             <p
               className={cn(
-                'text-sm text-[var(--color-muted-foreground)] ms-2 flex-shrink-0',
+                'text-[var(--text-xs)] text-[var(--color-muted-foreground)] ms-2 flex-shrink-0',
                 maxLength && charCount > maxLength * 0.9 && 'text-[var(--color-warning-600)]',
                 maxLength && charCount >= maxLength && 'text-[var(--color-error-600)]'
               )}
