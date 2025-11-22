@@ -4,6 +4,7 @@
  */
 
 @import url('./tokens.css');
+@import url('./components.css');
 
 @layer base, components, utilities;
 
