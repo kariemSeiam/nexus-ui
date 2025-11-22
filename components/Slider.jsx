@@ -55,10 +55,29 @@ const Slider = forwardRef(
       }
     }, [value]);
 
+    // Material Design 3 slider sizing (visual thumb sizes)
+    // Track heights: 4px / 6px / 8px
+    // Thumb sizes: 16px / 20px / 24px
+    // Touch target: 44×44px minimum (achieved via padding)
     const sizeClasses = {
-      sm: { track: 'h-1', thumb: 'w-4 h-4' },
-      md: { track: 'h-2', thumb: 'w-5 h-5' },
-      lg: { track: 'h-3', thumb: 'w-6 h-6' },
+      sm: {
+        track: 'h-[var(--slider-track-sm)]',          // 4px
+        thumb: 'w-[var(--slider-thumb-sm)] h-[var(--slider-thumb-sm)]',  // 16×16px
+        thumbActive: 'hover:w-[var(--slider-thumb-active-sm)] hover:h-[var(--slider-thumb-active-sm)]', // 20×20px on hover
+        offset: '8px',  // Half of 16px
+      },
+      md: {
+        track: 'h-[var(--slider-track-md)]',          // 6px
+        thumb: 'w-[var(--slider-thumb-md)] h-[var(--slider-thumb-md)]',  // 20×20px
+        thumbActive: 'hover:w-[var(--slider-thumb-active-md)] hover:h-[var(--slider-thumb-active-md)]', // 24×24px on hover
+        offset: '10px', // Half of 20px
+      },
+      lg: {
+        track: 'h-[var(--slider-track-lg)]',          // 8px
+        thumb: 'w-[var(--slider-thumb-lg)] h-[var(--slider-thumb-lg)]',  // 24×24px
+        thumbActive: 'hover:w-[var(--slider-thumb-active-lg)] hover:h-[var(--slider-thumb-active-lg)]', // 28×28px on hover
+        offset: '12px', // Half of 24px
+      },
     };
 
     const normalizeValue = (val) => {
@@ -189,31 +208,40 @@ const Slider = forwardRef(
           onMouseDown={handleMouseDown(thumbIndex)}
           onKeyDown={handleKeyDown(thumbIndex)}
           className={cn(
-            'absolute top-1/2 -translate-y-1/2 rounded-full',
-            'bg-[var(--color-primary)]',
-            'border-2 border-white shadow-md',
-            'cursor-pointer',
-            'transition-transform duration-150',
-            'motion-reduce:transition-none',
-            'focus-visible:outline-none',
-            'focus-visible:ring-2',
-            'focus-visible:ring-offset-2',
-            'focus-visible:ring-[var(--color-primary)]',
-            'disabled:opacity-50 disabled:cursor-not-allowed',
-            'hover:scale-110',
+            // Touch target wrapper - 44×44px minimum for accessibility
+            'absolute top-1/2 -translate-y-1/2',
             'min-w-[44px] min-h-[44px]',
             'flex items-center justify-center',
-            sizeClasses[size].thumb
+            'cursor-pointer',
+            'focus-visible:outline-none',
+            'disabled:opacity-50 disabled:cursor-not-allowed'
           )}
           style={{
-            left: `calc(${percentage}% - ${sizeClasses[size].thumb === 'w-4 h-4' ? '8px' : sizeClasses[size].thumb === 'w-5 h-5' ? '10px' : '12px'})`,
+            left: `calc(${percentage}% - 22px)`, // Half of 44px touch target
           }}
         >
-          {showTooltip && (isDragging && activeThumb === thumbIndex) && (
-            <div className="absolute bottom-full mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded whitespace-nowrap">
-              {thumbValue}
-            </div>
-          )}
+          {/* Visual thumb - smaller than touch target */}
+          <div
+            className={cn(
+              'rounded-full',
+              'bg-[var(--color-primary)]',
+              'border-2 border-white shadow-md',
+              'transition-all duration-150',
+              'motion-reduce:transition-none',
+              'focus-visible:outline-none',
+              'focus-visible:ring-2',
+              'focus-visible:ring-[var(--color-primary)]',
+              sizeClasses[size].thumb,
+              sizeClasses[size].thumbActive,
+              isDragging && activeThumb === thumbIndex && 'scale-110'
+            )}
+          >
+            {showTooltip && (isDragging && activeThumb === thumbIndex) && (
+              <div className="absolute bottom-full mb-2 px-2 py-1 bg-gray-900 text-white text-[var(--text-xs)] rounded whitespace-nowrap">
+                {thumbValue}
+              </div>
+            )}
+          </div>
         </div>
       );
     };
@@ -223,12 +251,12 @@ const Slider = forwardRef(
     const fillEnd = range ? getPercentage(values[1]) : getPercentage(values[0]);
 
     return (
-      <div ref={ref} className={cn('w-full', className)} {...props}>
+      <div ref={ref} className={cn('w-full max-w-[var(--content-sm)]', className)} {...props}>
         {(label || showValue) && (
           <div className="flex justify-between items-center mb-3">
-            {label && <label className="text-sm font-medium">{label}</label>}
+            {label && <label className="text-[var(--text-sm)] font-medium">{label}</label>}
             {showValue && (
-              <span className="text-sm text-[var(--color-muted-foreground)]">
+              <span className="text-[var(--text-xs)] text-[var(--color-muted-foreground)]">
                 {range ? `${values[0]} - ${values[1]}` : values[0]}
               </span>
             )}
@@ -273,7 +301,7 @@ const Slider = forwardRef(
           )}
         </div>
         {helperText && (
-          <p className="mt-1.5 text-sm text-[var(--color-muted-foreground)]">
+          <p className="mt-2 text-[var(--text-xs)] text-[var(--color-muted-foreground)]">
             {helperText}
           </p>
         )}

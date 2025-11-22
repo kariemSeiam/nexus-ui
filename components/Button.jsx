@@ -173,26 +173,28 @@ const Button = forwardRef(
       `,
     };
 
-    // Size styles with proper touch targets (44x44px minimum - WCAG 3.0)
+    // Size styles with Material Design 3 & iOS HIG standards
+    // Heights: 32px / 36px / 40px / 48px / 56px
+    // Following 8-point grid for all spacing
     const sizeClasses = {
       xs: iconOnly
-        ? 'w-11 h-11 p-2.5'
-        : 'px-2.5 py-2.5 text-xs gap-1.5 min-h-[44px]',
+        ? 'w-[var(--button-height-xs)] h-[var(--button-height-xs)] p-2'  // 32×32px, 8px padding
+        : 'h-[var(--button-height-xs)] px-3 text-[var(--text-xs)] gap-1.5',  // 32px height, 12px padding, 12px text
       sm: iconOnly
-        ? 'w-11 h-11 p-2.5'
-        : 'px-3 py-2.5 text-sm gap-2 min-h-[44px]',
+        ? 'w-[var(--button-height-sm)] h-[var(--button-height-sm)] p-2'  // 36×36px, 8px padding
+        : 'h-[var(--button-height-sm)] px-4 text-[var(--text-sm)] gap-2',   // 36px height, 16px padding, 14px text
       md: iconOnly
-        ? 'w-11 h-11 p-2.5'
-        : 'px-4 py-2.5 text-base gap-2 min-h-[44px]',
+        ? 'w-[var(--button-height-md)] h-[var(--button-height-md)] p-2'  // 40×40px, 8px padding
+        : 'h-[var(--button-height-md)] px-5 text-[var(--text-sm)] gap-2',   // 40px height, 20px padding, 14px text
       lg: iconOnly
-        ? 'w-12 h-12 p-3'
-        : 'px-6 py-3 text-lg gap-2.5 min-h-[48px]',
+        ? 'w-[var(--button-height-lg)] h-[var(--button-height-lg)] p-3'  // 48×48px, 12px padding
+        : 'h-[var(--button-height-lg)] px-6 text-[var(--text-base)] gap-2', // 48px height, 24px padding, 16px text
       xl: iconOnly
-        ? 'w-14 h-14 p-3.5'
-        : 'px-8 py-4 text-xl gap-3 min-h-[56px]',
+        ? 'w-[var(--button-height-xl)] h-[var(--button-height-xl)] p-4'  // 56×56px, 16px padding
+        : 'h-[var(--button-height-xl)] px-8 text-[var(--text-md)] gap-3',   // 56px height, 32px padding, 18px text
       '2xl': iconOnly
-        ? 'w-16 h-16 p-4'
-        : 'px-10 py-5 text-2xl gap-3 min-h-[64px]',
+        ? 'w-16 h-16 p-4'  // 64×64px, 16px padding (for hero CTAs)
+        : 'h-16 px-10 text-[var(--text-lg)] gap-3',  // 64px height, 40px padding, 20px text
     };
 
     // Border radius
@@ -230,14 +232,14 @@ const Button = forwardRef(
     // Determine if button should be disabled
     const isDisabled = disabled || loading;
 
-    // Icon size based on button size
+    // Icon sizes based on button size (following icon size tokens)
     const iconSizes = {
-      xs: 14,
-      sm: 16,
-      md: 18,
-      lg: 20,
-      xl: 24,
-      '2xl': 28,
+      xs: 12,  // --icon-xs
+      sm: 16,  // --icon-sm
+      md: 16,  // --icon-sm
+      lg: 20,  // --icon-md
+      xl: 24,  // --icon-lg
+      '2xl': 32, // --icon-xl
     };
 
     const iconSize = iconSizes[size];
