@@ -6,119 +6,168 @@
 
 @layer tokens {
   :root {
-    /* ==================== COLORS - OKLCH (Perceptually uniform) ==================== */
+    /* ==================== COLORS - OKLCH (Perceptually uniform, APCA contrast optimized) ==================== */
 
-    /* Primary - Blue */
-    --color-primary-50: oklch(0.97 0.01 250);
-    --color-primary-100: oklch(0.93 0.04 250);
-    --color-primary-200: oklch(0.85 0.08 250);
-    --color-primary-300: oklch(0.75 0.15 250);
-    --color-primary-400: oklch(0.65 0.20 250);
-    --color-primary-500: oklch(0.55 0.25 250);  /* Base */
-    --color-primary-600: oklch(0.45 0.25 250);
-    --color-primary-700: oklch(0.35 0.20 250);
-    --color-primary-800: oklch(0.25 0.15 250);
-    --color-primary-900: oklch(0.15 0.10 250);
-    --color-primary-950: oklch(0.10 0.05 250);
+    /* Neutral/Gray Scale - Foundation (subtle blue tint for warmth, 250° hue) */
+    --color-neutral-50: oklch(0.99 0.002 250);   /* Almost white - page backgrounds */
+    --color-neutral-100: oklch(0.97 0.004 250);  /* Very light - cards, panels, surface */
+    --color-neutral-200: oklch(0.93 0.006 250);  /* Light - borders, dividers */
+    --color-neutral-300: oklch(0.87 0.008 250);  /* Medium light - disabled states */
+    --color-neutral-400: oklch(0.73 0.010 250);  /* Medium - placeholders (APCA Lc 45+) */
+    --color-neutral-500: oklch(0.58 0.012 250);  /* Base - secondary text (APCA Lc 60+) */
+    --color-neutral-600: oklch(0.48 0.012 250);  /* Medium dark - icons (APCA Lc 70+) */
+    --color-neutral-700: oklch(0.40 0.012 250);  /* Dark - body text (APCA Lc 80+) */
+    --color-neutral-800: oklch(0.30 0.012 250);  /* Very dark - headings (APCA Lc 90+) */
+    --color-neutral-900: oklch(0.20 0.012 250);  /* Darkest - emphasis */
+    --color-neutral-950: oklch(0.13 0.010 250);  /* Almost black - maximum contrast */
 
-    /* Secondary - Slate */
-    --color-secondary-50: oklch(0.98 0.00 250);
-    --color-secondary-100: oklch(0.95 0.01 250);
-    --color-secondary-200: oklch(0.90 0.02 250);
-    --color-secondary-300: oklch(0.80 0.03 250);
-    --color-secondary-400: oklch(0.65 0.04 250);
-    --color-secondary-500: oklch(0.50 0.05 250);  /* Base */
-    --color-secondary-600: oklch(0.40 0.04 250);
-    --color-secondary-700: oklch(0.30 0.03 250);
-    --color-secondary-800: oklch(0.20 0.02 250);
-    --color-secondary-900: oklch(0.15 0.01 250);
-    --color-secondary-950: oklch(0.10 0.00 250);
+    /* Primary Color - Blue (Trust, professionalism, productivity) */
+    --color-primary-50: oklch(0.97 0.02 250);    /* Lightest - subtle backgrounds */
+    --color-primary-100: oklch(0.93 0.05 250);   /* Very light - hover states */
+    --color-primary-200: oklch(0.87 0.10 250);   /* Light - borders, selected states */
+    --color-primary-300: oklch(0.78 0.15 250);   /* Medium light */
+    --color-primary-400: oklch(0.68 0.20 250);   /* Medium - dark mode primary */
+    --color-primary-500: oklch(0.55 0.25 250);   /* Base - main primary color */
+    --color-primary-600: oklch(0.48 0.23 250);   /* Medium dark - light mode primary, hover */
+    --color-primary-700: oklch(0.42 0.20 250);   /* Dark - active states */
+    --color-primary-800: oklch(0.35 0.17 250);   /* Very dark - text on light backgrounds */
+    --color-primary-900: oklch(0.28 0.14 250);   /* Darkest - dark mode backgrounds */
+    --color-primary-950: oklch(0.20 0.10 250);   /* Almost black */
 
-    /* Success - Green */
-    --color-success-50: oklch(0.97 0.02 145);
-    --color-success-100: oklch(0.93 0.05 145);
-    --color-success-200: oklch(0.85 0.10 145);
-    --color-success-300: oklch(0.75 0.15 145);
-    --color-success-400: oklch(0.70 0.18 145);
-    --color-success-500: oklch(0.65 0.20 145);  /* Base */
-    --color-success-600: oklch(0.55 0.18 145);
-    --color-success-700: oklch(0.45 0.15 145);
-    --color-success-800: oklch(0.35 0.12 145);
-    --color-success-900: oklch(0.25 0.08 145);
-    --color-success-950: oklch(0.15 0.04 145);
+    /* Secondary Color - Purple (Accent, premium, creative) */
+    --color-secondary-50: oklch(0.97 0.02 290);  /* Lightest */
+    --color-secondary-100: oklch(0.93 0.05 290); /* Very light */
+    --color-secondary-200: oklch(0.87 0.10 290); /* Light */
+    --color-secondary-300: oklch(0.78 0.15 290); /* Medium light */
+    --color-secondary-400: oklch(0.68 0.18 290); /* Medium */
+    --color-secondary-500: oklch(0.58 0.20 290); /* Base - main secondary color */
+    --color-secondary-600: oklch(0.50 0.18 290); /* Medium dark */
+    --color-secondary-700: oklch(0.43 0.16 290); /* Dark */
+    --color-secondary-800: oklch(0.36 0.14 290); /* Very dark */
+    --color-secondary-900: oklch(0.29 0.11 290); /* Darkest */
+    --color-secondary-950: oklch(0.21 0.08 290); /* Almost black */
 
-    /* Warning - Amber */
-    --color-warning-50: oklch(0.97 0.02 85);
-    --color-warning-100: oklch(0.93 0.05 85);
-    --color-warning-200: oklch(0.87 0.10 85);
-    --color-warning-300: oklch(0.82 0.13 85);
-    --color-warning-400: oklch(0.77 0.15 85);
-    --color-warning-500: oklch(0.75 0.15 85);  /* Base */
-    --color-warning-600: oklch(0.65 0.13 85);
-    --color-warning-700: oklch(0.55 0.10 85);
-    --color-warning-800: oklch(0.45 0.08 85);
-    --color-warning-900: oklch(0.35 0.05 85);
-    --color-warning-950: oklch(0.25 0.03 85);
+    /* Success Color - Green (Positive actions, confirmations) */
+    --color-success-50: oklch(0.97 0.02 145);    /* Lightest - subtle backgrounds */
+    --color-success-100: oklch(0.93 0.05 145);   /* Very light - success alerts */
+    --color-success-200: oklch(0.87 0.10 145);   /* Light - borders */
+    --color-success-300: oklch(0.78 0.15 145);   /* Medium light */
+    --color-success-400: oklch(0.70 0.18 145);   /* Medium */
+    --color-success-500: oklch(0.65 0.20 145);   /* Base - main success color */
+    --color-success-600: oklch(0.58 0.19 145);   /* Medium dark - buttons */
+    --color-success-700: oklch(0.50 0.17 145);   /* Dark - hover states */
+    --color-success-800: oklch(0.42 0.15 145);   /* Very dark - text */
+    --color-success-900: oklch(0.34 0.12 145);   /* Darkest */
+    --color-success-950: oklch(0.25 0.09 145);   /* Almost black */
 
-    /* Error - Red */
-    --color-error-50: oklch(0.97 0.02 25);
-    --color-error-100: oklch(0.93 0.05 25);
-    --color-error-200: oklch(0.87 0.10 25);
-    --color-error-300: oklch(0.77 0.15 25);
-    --color-error-400: oklch(0.67 0.20 25);
-    --color-error-500: oklch(0.55 0.22 25);  /* Base */
-    --color-error-600: oklch(0.45 0.20 25);
-    --color-error-700: oklch(0.35 0.17 25);
-    --color-error-800: oklch(0.28 0.13 25);
-    --color-error-900: oklch(0.20 0.09 25);
-    --color-error-950: oklch(0.15 0.05 25);
+    /* Warning Color - Amber (Caution, important information) */
+    --color-warning-50: oklch(0.98 0.02 85);     /* Lightest */
+    --color-warning-100: oklch(0.95 0.05 85);    /* Very light - warning alerts */
+    --color-warning-200: oklch(0.90 0.10 85);    /* Light - borders */
+    --color-warning-300: oklch(0.83 0.13 85);    /* Medium light */
+    --color-warning-400: oklch(0.77 0.15 85);    /* Medium */
+    --color-warning-500: oklch(0.75 0.15 85);    /* Base - main warning color */
+    --color-warning-600: oklch(0.68 0.14 85);    /* Medium dark - buttons */
+    --color-warning-700: oklch(0.58 0.12 85);    /* Dark - hover */
+    --color-warning-800: oklch(0.48 0.10 85);    /* Very dark - text */
+    --color-warning-900: oklch(0.38 0.08 85);    /* Darkest */
+    --color-warning-950: oklch(0.28 0.06 85);    /* Almost black */
 
-    /* Info - Cyan */
-    --color-info-50: oklch(0.97 0.02 210);
-    --color-info-100: oklch(0.93 0.05 210);
-    --color-info-200: oklch(0.87 0.08 210);
-    --color-info-300: oklch(0.80 0.12 210);
-    --color-info-400: oklch(0.70 0.15 210);
-    --color-info-500: oklch(0.60 0.17 210);  /* Base */
-    --color-info-600: oklch(0.50 0.15 210);
-    --color-info-700: oklch(0.40 0.12 210);
-    --color-info-800: oklch(0.30 0.09 210);
-    --color-info-900: oklch(0.20 0.06 210);
-    --color-info-950: oklch(0.15 0.03 210);
+    /* Error Color - Red (Destructive actions, errors) */
+    --color-error-50: oklch(0.97 0.02 25);       /* Lightest */
+    --color-error-100: oklch(0.93 0.05 25);      /* Very light - error alerts */
+    --color-error-200: oklch(0.87 0.10 25);      /* Light - borders */
+    --color-error-300: oklch(0.78 0.15 25);      /* Medium light */
+    --color-error-400: oklch(0.68 0.18 25);      /* Medium */
+    --color-error-500: oklch(0.55 0.22 25);      /* Base - main error color */
+    --color-error-600: oklch(0.48 0.20 25);      /* Medium dark - buttons */
+    --color-error-700: oklch(0.42 0.18 25);      /* Dark - hover states */
+    --color-error-800: oklch(0.35 0.15 25);      /* Very dark - text */
+    --color-error-900: oklch(0.28 0.12 25);      /* Darkest */
+    --color-error-950: oklch(0.20 0.09 25);      /* Almost black */
 
-    /* Neutral - True Gray */
-    --color-neutral-50: oklch(0.98 0 0);
-    --color-neutral-100: oklch(0.96 0 0);
-    --color-neutral-200: oklch(0.92 0 0);
-    --color-neutral-300: oklch(0.85 0 0);
-    --color-neutral-400: oklch(0.70 0 0);
-    --color-neutral-500: oklch(0.55 0 0);
-    --color-neutral-600: oklch(0.45 0 0);
-    --color-neutral-700: oklch(0.35 0 0);
-    --color-neutral-800: oklch(0.25 0 0);
-    --color-neutral-900: oklch(0.15 0 0);
-    --color-neutral-950: oklch(0.10 0 0);
+    /* Info Color - Cyan (Informational messages, tips) */
+    --color-info-50: oklch(0.97 0.02 210);       /* Lightest */
+    --color-info-100: oklch(0.93 0.05 210);      /* Very light - info alerts */
+    --color-info-200: oklch(0.87 0.10 210);      /* Light - borders */
+    --color-info-300: oklch(0.78 0.15 210);      /* Medium light */
+    --color-info-400: oklch(0.68 0.18 210);      /* Medium */
+    --color-info-500: oklch(0.60 0.20 210);      /* Base - main info color */
+    --color-info-600: oklch(0.52 0.18 210);      /* Medium dark - buttons */
+    --color-info-700: oklch(0.45 0.16 210);      /* Dark - hover states */
+    --color-info-800: oklch(0.38 0.14 210);      /* Very dark - text */
+    --color-info-900: oklch(0.30 0.11 210);      /* Darkest */
+    --color-info-950: oklch(0.22 0.08 210);      /* Almost black */
 
-    /* Semantic Color Aliases - Light Mode */
-    --color-background: oklch(1 0 0);  /* Pure white */
-    --color-foreground: oklch(0.15 0 0);  /* Near black */
-    --color-card: oklch(1 0 0);
-    --color-card-foreground: oklch(0.15 0 0);
-    --color-popover: oklch(1 0 0);
-    --color-popover-foreground: oklch(0.15 0 0);
-    --color-primary: var(--color-primary-500);
-    --color-primary-foreground: oklch(0.98 0 0);
-    --color-secondary: var(--color-secondary-200);
-    --color-secondary-foreground: oklch(0.15 0 0);
-    --color-muted: var(--color-neutral-100);
-    --color-muted-foreground: var(--color-neutral-600);
-    --color-accent: var(--color-primary-100);
-    --color-accent-foreground: var(--color-primary-700);
-    --color-destructive: var(--color-error-500);
-    --color-destructive-foreground: oklch(0.98 0 0);
-    --color-border: var(--color-neutral-200);
-    --color-input: var(--color-neutral-200);
-    --color-ring: var(--color-primary-500);
+    /* ==================== SEMANTIC COLORS - LIGHT MODE (APCA Lc optimized) ==================== */
+
+    /* Background colors */
+    --color-background: var(--color-neutral-50);              /* Main page background */
+    --color-surface: var(--color-neutral-100);                /* Cards, panels, elevated surfaces */
+    --color-surface-elevated: oklch(1 0 0);                   /* Pure white - modals, dropdowns */
+
+    /* Foreground/Text colors (APCA contrast optimized) */
+    --color-foreground: var(--color-neutral-900);             /* Primary text (APCA Lc 90+) */
+    --color-foreground-secondary: var(--color-neutral-700);   /* Secondary text (APCA Lc 80+) */
+    --color-foreground-muted: var(--color-neutral-600);       /* Muted text (APCA Lc 70+) */
+    --color-foreground-subtle: var(--color-neutral-500);      /* Subtle text (APCA Lc 60+) */
+    --color-placeholder: var(--color-neutral-400);            /* Placeholder text (APCA Lc 45+) */
+
+    /* Border colors */
+    --color-border: var(--color-neutral-200);                 /* Default borders */
+    --color-border-strong: var(--color-neutral-300);          /* Emphasized borders */
+    --color-border-subtle: var(--color-neutral-100);          /* Subtle dividers */
+
+    /* Input colors */
+    --color-input: var(--color-neutral-200);                  /* Input borders */
+    --color-input-background: oklch(1 0 0);                   /* Input background (white) */
+    --color-input-border: var(--color-neutral-200);           /* Input border */
+
+    /* Interactive states */
+    --color-hover: var(--color-neutral-100);                  /* Hover background */
+    --color-active: var(--color-neutral-200);                 /* Active/pressed background */
+    --color-selected: var(--color-primary-100);               /* Selected state */
+    --color-selected-foreground: var(--color-primary-800);    /* Selected text */
+
+    /* Focus ring */
+    --color-ring: var(--color-primary-600);                   /* Focus outline */
+    --color-ring-offset: var(--color-background);             /* Ring offset color */
+
+    /* Primary color semantic aliases */
+    --color-primary: var(--color-primary-600);                /* Main primary color */
+    --color-primary-hover: var(--color-primary-700);          /* Hover state */
+    --color-primary-active: var(--color-primary-800);         /* Active state */
+    --color-primary-foreground: oklch(1 0 0);                 /* Text on primary (white) */
+    --color-primary-subtle: var(--color-primary-100);         /* Subtle backgrounds */
+    --color-primary-muted: var(--color-primary-200);          /* Muted borders */
+
+    /* Secondary color semantic aliases */
+    --color-secondary: var(--color-secondary-500);            /* Main secondary color */
+    --color-secondary-hover: var(--color-secondary-600);      /* Hover state */
+    --color-secondary-foreground: oklch(1 0 0);               /* Text on secondary */
+
+    /* Destructive/Error semantic aliases */
+    --color-destructive: var(--color-error-600);              /* Destructive actions */
+    --color-destructive-hover: var(--color-error-700);        /* Hover state */
+    --color-destructive-foreground: oklch(1 0 0);             /* Text on destructive (white) */
+
+    /* Muted semantic aliases */
+    --color-muted: var(--color-neutral-100);                  /* Muted background */
+    --color-muted-foreground: var(--color-neutral-600);       /* Muted text */
+
+    /* Accent semantic aliases */
+    --color-accent: var(--color-secondary-100);               /* Accent background */
+    --color-accent-foreground: var(--color-secondary-800);    /* Accent text */
+
+    /* Card semantic aliases */
+    --color-card: var(--color-surface);                       /* Card background */
+    --color-card-foreground: var(--color-foreground);         /* Card text */
+    --color-card-border: var(--color-border);                 /* Card border */
+
+    /* Popover/Dropdown semantic aliases */
+    --color-popover: var(--color-surface-elevated);           /* Popover background */
+    --color-popover-foreground: var(--color-foreground);      /* Popover text */
+    --color-popover-border: var(--color-border);              /* Popover border */
 
     /* ==================== SPACING - 8pt Grid System ==================== */
     --spacing-0: 0;
@@ -391,52 +440,158 @@
     --opacity-100: 1;
   }
 
-  /* ==================== DARK MODE ==================== */
+  /* ==================== DARK MODE (APCA Lc optimized) ==================== */
 
   :root.dark,
   [data-theme="dark"] {
-    --color-background: oklch(0.15 0 0);
-    --color-foreground: oklch(0.98 0 0);
-    --color-card: oklch(0.18 0 0);
-    --color-card-foreground: oklch(0.98 0 0);
-    --color-popover: oklch(0.18 0 0);
-    --color-popover-foreground: oklch(0.98 0 0);
-    --color-primary: var(--color-primary-400);
-    --color-primary-foreground: oklch(0.15 0 0);
-    --color-secondary: var(--color-secondary-800);
-    --color-secondary-foreground: oklch(0.98 0 0);
-    --color-muted: var(--color-neutral-800);
-    --color-muted-foreground: var(--color-neutral-400);
-    --color-accent: var(--color-primary-900);
-    --color-accent-foreground: var(--color-primary-300);
-    --color-destructive: var(--color-error-400);
-    --color-destructive-foreground: oklch(0.15 0 0);
-    --color-border: var(--color-neutral-800);
-    --color-input: var(--color-neutral-800);
-    --color-ring: var(--color-primary-400);
+    /* Background colors - Inverted scale with subtle warm tint */
+    --color-background: oklch(0.15 0.010 250);                /* Deep dark - main background */
+    --color-surface: oklch(0.18 0.012 250);                   /* Slightly elevated - cards, panels */
+    --color-surface-elevated: oklch(0.22 0.012 250);          /* More elevated - modals, dropdowns */
 
-    /* Adjusted shadows for dark mode */
-    --shadow-xs: 0 1px 2px 0 oklch(0 0 0 / 0.3);
-    --shadow-sm: 0 1px 3px 0 oklch(0 0 0 / 0.4),
-                 0 1px 2px -1px oklch(0 0 0 / 0.4);
-    --shadow-base: 0 4px 6px -1px oklch(0 0 0 / 0.4),
-                   0 2px 4px -2px oklch(0 0 0 / 0.4);
-    --shadow-md: 0 10px 15px -3px oklch(0 0 0 / 0.5),
-                 0 4px 6px -4px oklch(0 0 0 / 0.5);
-    --shadow-lg: 0 20px 25px -5px oklch(0 0 0 / 0.5),
-                 0 8px 10px -6px oklch(0 0 0 / 0.5);
-    --shadow-xl: 0 25px 50px -12px oklch(0 0 0 / 0.6);
-    --shadow-2xl: 0 50px 100px -20px oklch(0 0 0 / 0.8);
+    /* Foreground/Text colors (APCA contrast optimized for dark backgrounds) */
+    --color-foreground: oklch(0.95 0.002 250);                /* Primary text (APCA Lc 90+) */
+    --color-foreground-secondary: oklch(0.85 0.004 250);      /* Secondary text (APCA Lc 80+) */
+    --color-foreground-muted: oklch(0.70 0.006 250);          /* Muted text (APCA Lc 70+) */
+    --color-foreground-subtle: oklch(0.58 0.008 250);         /* Subtle text (APCA Lc 60+) */
+    --color-placeholder: oklch(0.50 0.010 250);               /* Placeholder text (APCA Lc 45+) */
+
+    /* Border colors - Lighter for visibility on dark */
+    --color-border: oklch(0.25 0.010 250);                    /* Default borders */
+    --color-border-strong: oklch(0.30 0.010 250);             /* Emphasized borders */
+    --color-border-subtle: oklch(0.20 0.010 250);             /* Subtle dividers */
+
+    /* Input colors */
+    --color-input: oklch(0.28 0.010 250);                     /* Input borders (lighter) */
+    --color-input-background: oklch(0.18 0.012 250);          /* Input background */
+    --color-input-border: oklch(0.28 0.010 250);              /* Input border */
+
+    /* Interactive states - Lighter for dark mode */
+    --color-hover: oklch(0.22 0.012 250);                     /* Hover background */
+    --color-active: oklch(0.25 0.012 250);                    /* Active/pressed background */
+    --color-selected: var(--color-primary-900);               /* Selected state (darker blue) */
+    --color-selected-foreground: var(--color-primary-200);    /* Selected text (lighter blue) */
+
+    /* Focus ring - Lighter and more vibrant */
+    --color-ring: var(--color-primary-400);                   /* Focus outline (lighter blue) */
+    --color-ring-offset: var(--color-background);             /* Ring offset color */
+
+    /* Primary color semantic aliases - Lighter for dark mode */
+    --color-primary: var(--color-primary-500);                /* Main primary (medium lightness) */
+    --color-primary-hover: var(--color-primary-400);          /* Hover state (lighter) */
+    --color-primary-active: var(--color-primary-300);         /* Active state (even lighter) */
+    --color-primary-foreground: oklch(0.13 0 0);              /* Text on primary (dark) */
+    --color-primary-subtle: var(--color-primary-950);         /* Subtle backgrounds (darker) */
+    --color-primary-muted: var(--color-primary-900);          /* Muted borders (darker) */
+
+    /* Secondary color semantic aliases */
+    --color-secondary: var(--color-secondary-500);            /* Main secondary */
+    --color-secondary-hover: var(--color-secondary-400);      /* Hover state (lighter) */
+    --color-secondary-foreground: oklch(0.13 0 0);            /* Text on secondary (dark) */
+
+    /* Destructive/Error semantic aliases - Lighter for dark mode */
+    --color-destructive: var(--color-error-500);              /* Destructive actions (lighter red) */
+    --color-destructive-hover: var(--color-error-400);        /* Hover state (lighter) */
+    --color-destructive-foreground: oklch(0.13 0 0);          /* Text on destructive (dark) */
+
+    /* Muted semantic aliases */
+    --color-muted: oklch(0.20 0.010 250);                     /* Muted background */
+    --color-muted-foreground: var(--color-foreground-muted);  /* Muted text */
+
+    /* Accent semantic aliases */
+    --color-accent: var(--color-secondary-950);               /* Accent background (darker purple) */
+    --color-accent-foreground: var(--color-secondary-300);    /* Accent text (lighter purple) */
+
+    /* Card semantic aliases */
+    --color-card: var(--color-surface);                       /* Card background */
+    --color-card-foreground: var(--color-foreground);         /* Card text */
+    --color-card-border: var(--color-border);                 /* Card border */
+
+    /* Popover/Dropdown semantic aliases */
+    --color-popover: var(--color-surface-elevated);           /* Popover background */
+    --color-popover-foreground: var(--color-foreground);      /* Popover text */
+    --color-popover-border: var(--color-border-strong);       /* Popover border */
+
+    /* Adjusted shadows for dark mode - Deeper and more pronounced */
+    --shadow-xs: 0 1px 2px 0 oklch(0 0 0 / 0.5);
+    --shadow-sm: 0 1px 3px 0 oklch(0 0 0 / 0.6),
+                 0 1px 2px -1px oklch(0 0 0 / 0.6);
+    --shadow-base: 0 4px 6px -1px oklch(0 0 0 / 0.6),
+                   0 2px 4px -2px oklch(0 0 0 / 0.6);
+    --shadow-md: 0 10px 15px -3px oklch(0 0 0 / 0.7),
+                 0 4px 6px -4px oklch(0 0 0 / 0.7);
+    --shadow-lg: 0 20px 25px -5px oklch(0 0 0 / 0.7),
+                 0 8px 10px -6px oklch(0 0 0 / 0.7);
+    --shadow-xl: 0 25px 50px -12px oklch(0 0 0 / 0.8);
+    --shadow-2xl: 0 50px 100px -20px oklch(0 0 0 / 0.9);
   }
 
-  /* ==================== FORCED COLORS MODE (Windows High Contrast) ==================== */
+  /* ==================== ACCESSIBILITY - USER PREFERENCES ==================== */
 
+  /* Forced Colors Mode (Windows High Contrast) */
   @media (forced-colors: active) {
     :root {
-      --color-primary: CanvasText;
+      --color-primary: Highlight;
       --color-background: Canvas;
       --color-foreground: CanvasText;
       --color-border: CanvasText;
+      --color-ring: Highlight;
+      --color-destructive: LinkText;
+      --color-success: LinkText;
+      --color-warning: LinkText;
+      --color-error: LinkText;
+      --color-info: LinkText;
+    }
+  }
+
+  /* Prefers High Contrast - Increase contrast for users who need it */
+  @media (prefers-contrast: more) {
+    :root {
+      /* Increase text contrast */
+      --color-foreground: var(--color-neutral-950);
+      --color-border: var(--color-neutral-400);
+      --color-border-strong: var(--color-neutral-500);
+
+      /* Stronger primary colors */
+      --color-primary: var(--color-primary-700);
+      --color-destructive: var(--color-error-700);
+      --color-success: var(--color-success-700);
+
+      /* Thicker borders (handled in components) */
+    }
+
+    :root.dark,
+    [data-theme="dark"] {
+      /* Increase text contrast for dark mode */
+      --color-foreground: oklch(1 0 0); /* Pure white */
+      --color-border: oklch(0.35 0.010 250);
+      --color-border-strong: oklch(0.40 0.010 250);
+
+      /* Brighter colors for dark mode */
+      --color-primary: var(--color-primary-300);
+      --color-destructive: var(--color-error-300);
+      --color-success: var(--color-success-300);
+    }
+  }
+
+  /* Prefers Reduced Contrast - Lower contrast for users sensitive to it */
+  @media (prefers-contrast: less) {
+    :root {
+      /* Softer text contrast */
+      --color-foreground: var(--color-neutral-800);
+      --color-border: var(--color-neutral-150);
+
+      /* Softer colors */
+      --color-primary: var(--color-primary-500);
+      --color-destructive: var(--color-error-500);
+    }
+
+    :root.dark,
+    [data-theme="dark"] {
+      /* Softer contrast for dark mode */
+      --color-foreground: oklch(0.90 0.002 250);
+      --color-border: oklch(0.22 0.010 250);
     }
   }
 }
+
