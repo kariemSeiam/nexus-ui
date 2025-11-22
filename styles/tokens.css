@@ -313,20 +313,30 @@
     --z-popover: 1060;
     --z-tooltip: 1070;
 
-    /* ==================== TRANSITIONS ==================== */
+    /* ==================== TRANSITIONS & MOTION (Material Design 3 + iOS) ==================== */
 
-    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-slower: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    /* Duration Standards */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);     /* Micro-interactions, hover states */
+    --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);     /* Component transitions (dropdowns, tooltips) */
+    --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);     /* Page transitions, modals */
+    --transition-slower: 500ms cubic-bezier(0.4, 0, 0.2, 1);   /* Complex sequences */
 
-    /* Easing Functions */
+    /* Standard Easing Functions */
     --ease-linear: linear;
-    --ease-in: cubic-bezier(0.4, 0, 1, 1);
-    --ease-out: cubic-bezier(0, 0, 0.2, 1);
-    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-    --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --ease-in: cubic-bezier(0.4, 0, 1, 1);                     /* Accelerate - elements exiting */
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);                    /* Decelerate - elements entering */
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);               /* Standard easing */
+    --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);     /* Playful bounce effect */
+    --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);    /* Spring animation */
+
+    /* Material Design 3 Emphasized Easing (2024-2025 Standard) */
+    --ease-emphasized-enter: cubic-bezier(0.05, 0.7, 0.1, 1.0);   /* Entrance animations - deceleration */
+    --ease-emphasized-exit: cubic-bezier(0.3, 0.0, 0.8, 0.15);    /* Exit animations - acceleration */
+    --ease-emphasized: cubic-bezier(0.2, 0.0, 0, 1.0);            /* Standard emphasized motion */
+
+    /* IBM Carbon Motion Tokens */
+    --ease-productive: cubic-bezier(0.2, 0, 0.38, 0.9);        /* Productive (efficiency-focused) */
+    --ease-expressive: cubic-bezier(0.4, 0.14, 0.3, 1);        /* Expressive (personality-focused) */
 
     /* ==================== BREAKPOINTS (for reference in JS) ==================== */
 
@@ -351,6 +361,52 @@
     --container-6xl: 72rem;   /* 1152px */
     --container-7xl: 80rem;   /* 1280px */
     --container-full: 100%;
+
+    /* ==================== READING WIDTH & LINE LENGTH (WCAG 3.0 Guidelines) ==================== */
+
+    /* Optimal line length for readability (Bringhurst's standard) */
+    --reading-width-optimal: 65ch;          /* 50-75 characters - optimal (Bringhurst) */
+    --reading-width-min: 45ch;              /* 45 characters - minimum comfortable */
+    --reading-width-max: 75ch;              /* 75 characters - maximum comfortable */
+    --reading-width-wcag: 80ch;             /* 80 characters - WCAG Level AAA maximum */
+
+    /* Specific content widths */
+    --reading-width-prose: 65ch;            /* Blog posts, articles, long-form content */
+    --reading-width-form: 60ch;             /* Forms, input fields */
+    --reading-width-code: 80ch;             /* Code blocks, monospace content */
+    --reading-width-narrow: 45ch;           /* Narrow columns, sidebars */
+
+    /* ==================== FLUID TYPOGRAPHY (Responsive with clamp) ==================== */
+
+    /* Body text - Scales from 16px to 18px based on viewport */
+    --fluid-text-base: clamp(1rem, 0.5vw + 0.875rem, 1.125rem);
+
+    /* Small text - Scales from 14px to 16px */
+    --fluid-text-sm: clamp(0.875rem, 0.5vw + 0.75rem, 1rem);
+
+    /* Large text - Scales from 18px to 20px */
+    --fluid-text-lg: clamp(1.125rem, 0.5vw + 1rem, 1.25rem);
+
+    /* Headings - Fluid scaling for responsive typography */
+    --fluid-text-xl: clamp(1.25rem, 1vw + 1rem, 1.5rem);        /* H5: 20px → 24px */
+    --fluid-text-2xl: clamp(1.5rem, 1.5vw + 1rem, 1.875rem);    /* H4: 24px → 30px */
+    --fluid-text-3xl: clamp(1.875rem, 2vw + 1.25rem, 2.25rem);  /* H3: 30px → 36px */
+    --fluid-text-4xl: clamp(2.25rem, 3vw + 1.5rem, 3rem);       /* H2: 36px → 48px */
+    --fluid-text-5xl: clamp(3rem, 4vw + 2rem, 3.75rem);         /* H1: 48px → 60px */
+    --fluid-text-6xl: clamp(3.75rem, 5vw + 2.5rem, 4.5rem);     /* Display: 60px → 72px */
+
+    /* ==================== CONTAINER QUERIES (93%+ Browser Support) ==================== */
+
+    /* Container query breakpoints for component-level responsiveness */
+    --container-query-xs: 20rem;    /* 320px */
+    --container-query-sm: 24rem;    /* 384px */
+    --container-query-md: 28rem;    /* 448px */
+    --container-query-lg: 32rem;    /* 512px */
+    --container-query-xl: 42rem;    /* 672px */
+
+    /* Container types (use with container-type CSS property) */
+    /* Usage: container-type: inline-size; */
+    /* Then: @container (min-width: var(--container-query-md)) { ... } */
 
     /* ==================== COMPONENT SIZING - Material Design 3 & iOS HIG ==================== */
 
