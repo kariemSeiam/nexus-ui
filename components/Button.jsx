@@ -37,7 +37,7 @@ import { cn } from '../lib/utils';
  */
 const Spinner = ({ size = 16, className = '' }) => (
   <svg
-    className={cn('animate-spin', className)}
+    className={cn('animate-spin motion-reduce:animate-none', className)}
     width={size}
     height={size}
     viewBox="0 0 24 24"
@@ -173,14 +173,14 @@ const Button = forwardRef(
       `,
     };
 
-    // Size styles with proper touch targets (44x44px minimum)
+    // Size styles with proper touch targets (44x44px minimum - WCAG 3.0)
     const sizeClasses = {
       xs: iconOnly
-        ? 'w-7 h-7 p-1.5'
-        : 'px-2.5 py-1.5 text-xs gap-1.5 min-h-[28px]',
+        ? 'w-11 h-11 p-2.5'
+        : 'px-2.5 py-2.5 text-xs gap-1.5 min-h-[44px]',
       sm: iconOnly
-        ? 'w-9 h-9 p-2'
-        : 'px-3 py-2 text-sm gap-2 min-h-[36px]',
+        ? 'w-11 h-11 p-2.5'
+        : 'px-3 py-2.5 text-sm gap-2 min-h-[44px]',
       md: iconOnly
         ? 'w-11 h-11 p-2.5'
         : 'px-4 py-2.5 text-base gap-2 min-h-[44px]',
@@ -254,6 +254,11 @@ const Button = forwardRef(
       return icon;
     };
 
+    // Accessibility: Icon-only buttons need aria-label
+    const ariaLabel = iconOnly && !props['aria-label'] && !children
+      ? 'Button'
+      : props['aria-label'];
+
     return (
       <Component
         ref={ref}
@@ -261,6 +266,7 @@ const Button = forwardRef(
         disabled={isDisabled}
         aria-busy={loading}
         aria-disabled={isDisabled}
+        aria-label={ariaLabel}
         className={cn(
           baseClasses,
           variantClasses[variant],

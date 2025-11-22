@@ -35,21 +35,21 @@ const Switch = forwardRef(
       sm: {
         track: 'w-8 h-4',
         thumb: 'w-3 h-3',
-        translate: 'translate-x-4',
+        translateChecked: 'translate-x-4 rtl:-translate-x-4',
       },
       md: {
         track: 'w-11 h-6',
         thumb: 'w-5 h-5',
-        translate: 'translate-x-5',
+        translateChecked: 'translate-x-5 rtl:-translate-x-5',
       },
       lg: {
         track: 'w-14 h-7',
         thumb: 'w-6 h-6',
-        translate: 'translate-x-7',
+        translateChecked: 'translate-x-7 rtl:-translate-x-7',
       },
     };
 
-    const { track, thumb, translate } = sizeClasses[size];
+    const { track, thumb, translateChecked } = sizeClasses[size];
 
     const handleChange = (e) => {
       if (!disabled && onChange) {
@@ -69,6 +69,7 @@ const Switch = forwardRef(
         className={cn(
           'relative inline-flex shrink-0 rounded-full',
           'transition-colors duration-200 ease-in-out',
+          'motion-reduce:transition-none',
           'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
           'focus-visible:outline-[var(--color-ring)]',
           'disabled:opacity-50 disabled:cursor-not-allowed',
@@ -85,8 +86,9 @@ const Switch = forwardRef(
             'pointer-events-none inline-block rounded-full',
             'bg-white shadow-sm',
             'transform transition-transform duration-200 ease-in-out',
+            'motion-reduce:transition-none',
             'translate-x-0.5 translate-y-0.5',
-            checked && `${translate} rtl:-${translate}`,
+            checked && translateChecked,
             thumb
           )}
         />

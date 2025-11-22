@@ -46,26 +46,26 @@ const Input = forwardRef(
       default: `
         bg-[var(--color-background)]
         border border-[var(--color-input)]
-        focus:border-[var(--color-primary)]
-        focus:ring-2 focus:ring-[var(--color-primary)]/20
+        focus-visible:border-[var(--color-primary)]
+        focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]/20
       `,
       filled: `
         bg-[var(--color-muted)]
         border-0 border-b-2 border-[var(--color-border)]
-        focus:border-[var(--color-primary)]
-        focus:bg-[var(--color-background)]
+        focus-visible:border-[var(--color-primary)]
+        focus-visible:bg-[var(--color-background)]
         rounded-t-lg rounded-b-none
       `,
       outline: `
         bg-transparent
         border-2 border-[var(--color-border)]
-        focus:border-[var(--color-primary)]
-        focus:ring-2 focus:ring-[var(--color-primary)]/20
+        focus-visible:border-[var(--color-primary)]
+        focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]/20
       `,
       underline: `
         bg-transparent
         border-0 border-b-2 border-[var(--color-border)]
-        focus:border-[var(--color-primary)]
+        focus-visible:border-[var(--color-primary)]
         rounded-none px-0
       `,
     };
@@ -79,9 +79,9 @@ const Input = forwardRef(
     };
 
     const stateClasses = error
-      ? 'border-[var(--color-error-500)] focus:border-[var(--color-error-500)] focus:ring-[var(--color-error-500)]/20'
+      ? 'border-[var(--color-error-500)] focus-visible:border-[var(--color-error-500)] focus-visible:ring-[var(--color-error-500)]/20'
       : success
-      ? 'border-[var(--color-success-500)] focus:border-[var(--color-success-500)] focus:ring-[var(--color-success-500)]/20'
+      ? 'border-[var(--color-success-500)] focus-visible:border-[var(--color-success-500)] focus-visible:ring-[var(--color-success-500)]/20'
       : '';
 
     const iconSizes = {
@@ -118,7 +118,7 @@ const Input = forwardRef(
         )}
         <div className="relative">
           {leftIcon && (
-            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--color-muted-foreground)]">
+            <div className="absolute start-3 top-1/2 -translate-y-1/2 text-[var(--color-muted-foreground)]">
               {renderIcon(leftIcon)}
             </div>
           )}
@@ -138,19 +138,20 @@ const Input = forwardRef(
               'text-[var(--color-foreground)]',
               'placeholder:text-[var(--color-muted-foreground)]',
               'transition-all duration-200',
+              'motion-reduce:transition-none',
               'focus:outline-none',
               'disabled:opacity-50 disabled:cursor-not-allowed',
               variantClasses[variant],
               sizeClasses[size],
               stateClasses,
-              leftIcon && 'pl-10',
-              rightIcon && 'pr-10',
+              leftIcon && 'ps-10',
+              rightIcon && 'pe-10',
               className
             )}
             {...props}
           />
           {rightIcon && (
-            <div className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--color-muted-foreground)]">
+            <div className="absolute end-3 top-1/2 -translate-y-1/2 text-[var(--color-muted-foreground)]">
               {renderIcon(rightIcon)}
             </div>
           )}

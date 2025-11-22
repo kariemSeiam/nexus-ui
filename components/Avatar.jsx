@@ -92,7 +92,7 @@ const Avatar = forwardRef(
         {status && (
           <span
             className={cn(
-              'absolute bottom-0 right-0 rounded-full',
+              'absolute bottom-0 end-0 rounded-full',
               'ring-2 ring-[var(--color-background)]',
               statusClasses[status],
               statusSizes[size]

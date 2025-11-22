@@ -80,7 +80,7 @@ const Alert = forwardRef(
 
     const iconToShow = icon || defaultIcons[variant];
 
-    // Determine ARIA role and live region
+    // Determine ARIA role and live region (WCAG 3.0 / ARIA 1.3)
     const role = variant === 'error' ? 'alert' : 'status';
     const ariaLive = variant === 'error' ? 'assertive' : 'polite';
 
@@ -89,8 +89,9 @@ const Alert = forwardRef(
         ref={ref}
         role={role}
         aria-live={ariaLive}
+        aria-atomic="true"
         className={cn(
-          'relative flex gap-3 p-4 rounded-lg border-l-4',
+          'relative flex gap-3 p-4 rounded-lg border-s-4',
           variantClasses[variant],
           className
         )}
@@ -109,10 +110,11 @@ const Alert = forwardRef(
             type="button"
             onClick={onClose}
             className={cn(
-              'flex-shrink-0 p-1 rounded-md',
+              'flex-shrink-0 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-md',
               'hover:bg-black/5 dark:hover:bg-white/5',
               'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
-              'transition-colors duration-150'
+              'transition-colors duration-150',
+              'motion-reduce:transition-none'
             )}
             aria-label="Close alert"
           >

@@ -36,6 +36,9 @@ const Skeleton = forwardRef(
     return (
       <div
         ref={ref}
+        role="status"
+        aria-busy="true"
+        aria-label="Loading content"
         className={cn(
           'bg-[var(--color-muted)]',
           'animate-pulse motion-reduce:animate-none',

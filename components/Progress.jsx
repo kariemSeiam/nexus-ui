@@ -80,6 +80,7 @@ const Progress = forwardRef(
           <div
             className={cn(
               'h-full rounded-full transition-all duration-300 ease-out',
+              'motion-reduce:transition-none',
               variantClasses[variant],
               indeterminate &&
                 'animate-[progress_2s_ease-in-out_infinite] motion-reduce:animate-none'
