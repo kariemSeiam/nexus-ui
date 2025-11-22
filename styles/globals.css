@@ -291,8 +291,176 @@
 }
 
 @layer utilities {
-  /* Utility classes go here */
-  /* Highest specificity for overrides */
+  /* ==================== MODERN STANDARDS UTILITIES (2024-2025) ==================== */
+
+  /* ==================== READING WIDTH (WCAG 3.0 / Bringhurst) ==================== */
+
+  /* Optimal reading width - 65 characters (Bringhurst's standard) */
+  .reading-width-optimal {
+    max-inline-size: var(--reading-width-optimal);
+  }
+
+  /* Reading width variants */
+  .reading-width-prose {
+    max-inline-size: var(--reading-width-prose); /* 65ch - blog posts, articles */
+  }
+
+  .reading-width-form {
+    max-inline-size: var(--reading-width-form); /* 60ch - forms, input fields */
+  }
+
+  .reading-width-code {
+    max-inline-size: var(--reading-width-code); /* 80ch - code blocks */
+  }
+
+  .reading-width-narrow {
+    max-inline-size: var(--reading-width-narrow); /* 45ch - sidebars */
+  }
+
+  .reading-width-wcag {
+    max-inline-size: var(--reading-width-wcag); /* 80ch - WCAG Level AAA maximum */
+  }
+
+  /* Responsive reading width with edge padding */
+  .reading-width-responsive {
+    max-inline-size: min(var(--reading-width-optimal), 100% - 2rem);
+  }
+
+  /* ==================== FLUID TYPOGRAPHY (Responsive + Zoom-Friendly) ==================== */
+
+  /* Fluid body text - 16px → 18px */
+  .fluid-text-base {
+    font-size: var(--fluid-text-base);
+  }
+
+  /* Fluid small text - 14px → 16px */
+  .fluid-text-sm {
+    font-size: var(--fluid-text-sm);
+  }
+
+  /* Fluid large text - 18px → 20px */
+  .fluid-text-lg {
+    font-size: var(--fluid-text-lg);
+  }
+
+  /* Fluid headings - responsive scaling */
+  .fluid-text-xl {
+    font-size: var(--fluid-text-xl); /* H5: 20px → 24px */
+  }
+
+  .fluid-text-2xl {
+    font-size: var(--fluid-text-2xl); /* H4: 24px → 30px */
+  }
+
+  .fluid-text-3xl {
+    font-size: var(--fluid-text-3xl); /* H3: 30px → 36px */
+  }
+
+  .fluid-text-4xl {
+    font-size: var(--fluid-text-4xl); /* H2: 36px → 48px */
+  }
+
+  .fluid-text-5xl {
+    font-size: var(--fluid-text-5xl); /* H1: 48px → 60px */
+  }
+
+  .fluid-text-6xl {
+    font-size: var(--fluid-text-6xl); /* Display: 60px → 72px */
+  }
+
+  /* ==================== CONTAINER QUERIES (93%+ Browser Support) ==================== */
+
+  /* Enable container queries on an element */
+  .container-query {
+    container-type: inline-size;
+  }
+
+  /* Container with name for scoped queries */
+  .container-query-card {
+    container-type: inline-size;
+    container-name: card;
+  }
+
+  .container-query-sidebar {
+    container-type: inline-size;
+    container-name: sidebar;
+  }
+
+  .container-query-main {
+    container-type: inline-size;
+    container-name: main;
+  }
+
+  /* ==================== MOTION UTILITIES (Material Design 3) ==================== */
+
+  /* MD3 Emphasized Easing - Entrance animations */
+  .motion-enter {
+    animation-timing-function: var(--ease-emphasized-enter);
+  }
+
+  /* MD3 Emphasized Easing - Exit animations */
+  .motion-exit {
+    animation-timing-function: var(--ease-emphasized-exit);
+  }
+
+  /* IBM Carbon Productive motion (efficiency-focused) */
+  .motion-productive {
+    transition-timing-function: var(--ease-productive);
+  }
+
+  /* IBM Carbon Expressive motion (personality-focused) */
+  .motion-expressive {
+    transition-timing-function: var(--ease-expressive);
+  }
+
+  /* Standard motion durations */
+  .motion-fast {
+    transition-duration: 150ms; /* Micro-interactions */
+  }
+
+  .motion-base {
+    transition-duration: 200ms; /* Component transitions */
+  }
+
+  .motion-slow {
+    transition-duration: 300ms; /* Page transitions */
+  }
+
+  .motion-slower {
+    transition-duration: 500ms; /* Complex sequences */
+  }
+
+  /* ==================== TOUCH TARGETS (WCAG 2.5.5 Level AAA) ==================== */
+
+  /* Minimum touch target - 44px iOS HIG */
+  .touch-target-min {
+    min-inline-size: var(--touch-target-ios);
+    min-block-size: var(--touch-target-ios);
+  }
+
+  /* Recommended touch target - 48px Material Design 3 */
+  .touch-target-md3 {
+    min-inline-size: var(--touch-target-md3);
+    min-block-size: var(--touch-target-md3);
+  }
+
+  /* Extend touch target with transparent padding */
+  .touch-target-extended {
+    position: relative;
+  }
+
+  .touch-target-extended::before {
+    content: '';
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    transform: translate(-50%, -50%);
+    inline-size: var(--touch-target-md3);
+    block-size: var(--touch-target-md3);
+    z-index: -1;
+  }
+
+  /* ==================== TEXT UTILITIES ==================== */
 
   /* Text truncation */
   .truncate {
@@ -323,6 +491,34 @@
     overflow: hidden;
   }
 
+  .line-clamp-4 {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* ==================== ACCESSIBILITY UTILITIES ==================== */
+
+  /* Focus visible only (keyboard users) */
+  .focus-visible-only:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  .focus-visible-only:focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+
+  /* High contrast borders for prefers-contrast: more */
+  @media (prefers-contrast: more) {
+    .contrast-border {
+      border-width: var(--border-width-2);
+    }
+  }
+
+  /* ==================== RTL SUPPORT ==================== */
+
   /* RTL helpers */
   .rtl\:flip {
     transform: scaleX(-1);
@@ -330,5 +526,54 @@
 
   [dir="rtl"] .rtl\:flip {
     transform: scaleX(1);
+  }
+
+  /* ==================== LAYOUT UTILITIES ==================== */
+
+  /* Center content with max-width */
+  .content-center {
+    margin-inline: auto;
+    max-inline-size: var(--content-xl);
+  }
+
+  /* Stack with 8pt grid spacing */
+  .stack-2 {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2); /* 8px */
+  }
+
+  .stack-4 {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4); /* 16px */
+  }
+
+  .stack-6 {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-6); /* 24px */
+  }
+
+  .stack-8 {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8); /* 32px */
+  }
+
+  /* Group with 8pt grid spacing */
+  .group-2 {
+    display: flex;
+    gap: var(--spacing-2); /* 8px */
+  }
+
+  .group-4 {
+    display: flex;
+    gap: var(--spacing-4); /* 16px */
+  }
+
+  .group-6 {
+    display: flex;
+    gap: var(--spacing-6); /* 24px */
   }
 }
