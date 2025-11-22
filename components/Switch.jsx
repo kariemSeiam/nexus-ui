@@ -108,7 +108,7 @@ const Switch = forwardRef(
         )}
       >
         {switchElement}
-        <span className="text-sm font-medium select-none">{label}</span>
+        <span className="text-[var(--text-sm)] font-medium select-none">{label}</span>
       </label>
     );
   }

@@ -92,11 +92,11 @@ const Select = forwardRef(
     };
 
     const sizeClasses = {
-      xs: { button: 'min-h-[44px] px-2 text-xs gap-1.5', icon: 14 },
-      sm: { button: 'min-h-[44px] px-3 text-sm gap-2', icon: 16 },
-      md: { button: 'min-h-[44px] px-4 text-base gap-2', icon: 18 },
-      lg: { button: 'min-h-[48px] px-5 text-lg gap-2.5', icon: 20 },
-      xl: { button: 'min-h-[52px] px-6 text-xl gap-3', icon: 22 },
+      xs: { button: 'min-h-[44px] px-3 text-[var(--text-xs)] gap-2', icon: 14 },
+      sm: { button: 'min-h-[44px] px-4 text-[var(--text-sm)] gap-2', icon: 16 },
+      md: { button: 'min-h-[44px] px-5 text-[16px] gap-2', icon: 18 },
+      lg: { button: 'min-h-[48px] px-6 text-[18px] gap-2', icon: 20 },
+      xl: { button: 'min-h-[52px] px-6 text-[20px] gap-3', icon: 22 },
     };
 
     const stateClasses = error
@@ -211,11 +211,11 @@ const Select = forwardRef(
     };
 
     return (
-      <div ref={selectRef} className="w-full relative">
+      <div ref={selectRef} className="w-full max-w-[var(--content-sm)] relative">
         {label && (
           <label
             className={cn(
-              'block text-sm font-medium mb-1.5',
+              'block text-[var(--text-sm)] font-medium mb-2',
               disabled ? 'opacity-50' : '',
               error ? 'text-[var(--color-error-600)]' : ''
             )}
@@ -321,7 +321,7 @@ const Select = forwardRef(
         {error && errorText && (
           <p
             id="select-error-text"
-            className="mt-1.5 text-sm text-[var(--color-error-600)]"
+            className="mt-2 text-[var(--text-xs)] text-[var(--color-error-600)]"
             role="alert"
           >
             {errorText}
@@ -330,7 +330,7 @@ const Select = forwardRef(
         {!error && helperText && (
           <p
             id="select-helper-text"
-            className="mt-1.5 text-sm text-[var(--color-muted-foreground)]"
+            className="mt-2 text-[var(--text-xs)] text-[var(--color-muted-foreground)]"
           >
             {helperText}
           </p>

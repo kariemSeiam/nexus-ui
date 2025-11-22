@@ -27,7 +27,7 @@ const Skeleton = forwardRef(
     ref
   ) => {
     const variantClasses = {
-      text: 'rounded h-4',
+      text: 'rounded h-5',
       circular: 'rounded-full',
       rectangular: 'rounded-lg',
       rounded: 'rounded-xl',

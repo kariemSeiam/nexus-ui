@@ -92,7 +92,7 @@ const TabsList = forwardRef(({ className, children, ...props }, ref) => {
   const combinedRef = ref || listRef;
 
   const variantClasses = {
-    default: 'bg-[var(--color-muted)] p-1 rounded-lg',
+    default: 'bg-[var(--color-muted)] p-2 rounded-lg',
     pills: 'bg-transparent gap-2',
     underline: 'bg-transparent border-b border-[var(--color-border)]',
   };
@@ -135,9 +135,9 @@ const TabsTrigger = forwardRef(
     const triggerRef = useRef(null);
 
     const sizeClasses = {
-      sm: 'min-h-[44px] px-3 py-2 text-sm gap-1.5',
-      md: 'min-h-[44px] px-4 py-2.5 text-base gap-2',
-      lg: 'min-h-[48px] px-5 py-3 text-lg gap-2.5',
+      sm: 'min-h-[44px] px-3 py-2 text-[var(--text-sm)] gap-2',
+      md: 'min-h-[44px] px-4 py-3 text-[var(--text-base)] gap-2',
+      lg: 'min-h-[48px] px-6 py-4 text-[var(--text-lg)] gap-2',
     };
 
     const variantClasses = {

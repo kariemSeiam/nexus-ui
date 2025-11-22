@@ -61,7 +61,7 @@ const RadioGroup = forwardRef(
         {label && (
           <label
             className={cn(
-              'block text-sm font-medium mb-3',
+              'block text-[var(--text-sm)] font-medium mb-3',
               disabled && 'opacity-50',
               error && 'text-[var(--color-error-600)]'
             )}
@@ -97,7 +97,7 @@ const RadioGroup = forwardRef(
         {error && errorText && (
           <p
             id="radiogroup-error-text"
-            className="mt-2 text-sm text-[var(--color-error-600)]"
+            className="mt-2 text-[var(--text-xs)] text-[var(--color-error-600)]"
             role="alert"
           >
             {errorText}
@@ -106,7 +106,7 @@ const RadioGroup = forwardRef(
         {!error && helperText && (
           <p
             id="radiogroup-helper-text"
-            className="mt-2 text-sm text-[var(--color-muted-foreground)]"
+            className="mt-2 text-[var(--text-xs)] text-[var(--color-muted-foreground)]"
           >
             {helperText}
           </p>

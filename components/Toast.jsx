@@ -92,7 +92,7 @@ const ToastViewport = forwardRef(
       <div
         ref={ref}
         className={cn(
-          'fixed z-[100] flex flex-col gap-2 p-4 pointer-events-none',
+          'fixed z-[100] flex flex-col gap-4 p-4 pointer-events-none',
           'max-w-[420px]',
           positionClasses[position],
           className
@@ -179,7 +179,7 @@ const Toast = forwardRef(
         aria-atomic="true"
         className={cn(
           'pointer-events-auto',
-          'relative flex gap-3 p-4 rounded-lg',
+          'relative flex gap-4 p-4 rounded-lg',
           'border-s-4 shadow-lg',
           'transition-all duration-300',
           'motion-reduce:transition-none',
@@ -197,17 +197,17 @@ const Toast = forwardRef(
 
         <div className="flex-1 min-w-0">
           {title && (
-            <div className="font-semibold text-sm mb-1">
+            <div className="font-semibold text-[var(--text-sm)] mb-1">
               {title}
             </div>
           )}
           {description && (
-            <div className="text-sm text-[var(--color-muted-foreground)]">
+            <div className="text-[var(--text-xs)] text-[var(--color-muted-foreground)]">
               {description}
             </div>
           )}
           {action && (
-            <div className="mt-3">
+            <div className="mt-4">
               {action}
             </div>
           )}

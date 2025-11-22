@@ -40,9 +40,9 @@ const Pagination = forwardRef(
     ref
   ) => {
     const sizeClasses = {
-      sm: 'min-w-[44px] min-h-[44px] text-sm',
-      md: 'min-w-[44px] min-h-[44px] text-base',
-      lg: 'min-w-[48px] min-h-[48px] text-lg',
+      sm: 'h-8 min-w-[44px] text-[var(--text-sm)]',
+      md: 'h-9 min-w-[44px] text-[var(--text-base)]',
+      lg: 'h-10 min-w-[48px] text-[var(--text-lg)]',
     };
 
     const variantClasses = {
@@ -139,7 +139,7 @@ const Pagination = forwardRef(
         ref={ref}
         role="navigation"
         aria-label="Pagination"
-        className={cn('flex items-center gap-1', className)}
+        className={cn('flex items-center gap-2', className)}
         {...props}
       >
         {/* First Page Button */}

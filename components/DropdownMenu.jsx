@@ -151,7 +151,7 @@ const DropdownMenuContent = forwardRef(
           'bg-[var(--color-background)]',
           'border border-[var(--color-border)]',
           'rounded-lg shadow-lg',
-          'py-1',
+          'py-2',
           'min-w-[200px]',
           'animate-[dropdown-show_150ms_ease-out] motion-reduce:animate-none',
           alignClasses[align],
@@ -217,7 +217,7 @@ const DropdownMenuItem = forwardRef(
         className={cn(
           'relative flex items-center gap-2',
           'min-h-[44px] px-3 py-2',
-          'text-sm cursor-pointer',
+          'text-[var(--text-sm)] cursor-pointer',
           'transition-colors duration-150',
           'motion-reduce:transition-none',
           'focus-visible:outline-none',
@@ -267,7 +267,7 @@ const DropdownMenuSeparator = forwardRef(
         ref={ref}
         role="separator"
         className={cn(
-          'h-px my-1 bg-[var(--color-border)]',
+          'h-px my-2 bg-[var(--color-border)]',
           className
         )}
         {...props}
@@ -284,7 +284,7 @@ const DropdownMenuLabel = forwardRef(
       <div
         ref={ref}
         className={cn(
-          'px-3 py-2 text-xs font-semibold',
+          'px-3 py-2 text-[var(--text-xs)] font-semibold',
           'text-[var(--color-muted-foreground)]',
           'uppercase tracking-wider',
           className

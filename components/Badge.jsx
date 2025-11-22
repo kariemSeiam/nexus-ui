@@ -103,10 +103,10 @@ const Badge = forwardRef(
 
     // Size classes
     const sizeClasses = {
-      xs: 'px-1.5 py-0.5 text-xs gap-1',
-      sm: 'px-2 py-0.5 text-xs gap-1',
-      md: 'px-2.5 py-1 text-sm gap-1.5',
-      lg: 'px-3 py-1 text-base gap-1.5',
+      xs: 'h-[var(--badge-height-xs)] px-1 text-[var(--text-2xs)] gap-1',
+      sm: 'h-[var(--badge-height-sm)] px-1.5 text-[var(--text-xs)] gap-1',
+      md: 'h-[var(--badge-height-md)] px-2 text-[var(--text-xs)] gap-1.5',
+      lg: 'h-[var(--badge-height-lg)] px-2.5 text-[var(--text-sm)] gap-1.5',
       xl: 'px-3.5 py-1.5 text-lg gap-2',
     };
 

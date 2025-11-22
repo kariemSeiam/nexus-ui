@@ -54,9 +54,9 @@ const Progress = forwardRef(
       <div className="w-full">
         {(label || showValue) && (
           <div className="flex justify-between items-center mb-2">
-            {label && <span className="text-sm font-medium">{label}</span>}
+            {label && <span className="text-[var(--text-sm)] font-medium">{label}</span>}
             {showValue && (
-              <span className="text-sm text-[var(--color-muted-foreground)]">
+              <span className="text-[var(--text-sm)] text-[var(--color-muted-foreground)]">
                 {Math.round(percentage)}%
               </span>
             )}
