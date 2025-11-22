@@ -26,6 +26,26 @@
     scroll-behavior: smooth;
   }
 
+  /* Prevent flash of unstyled content on theme load */
+  html.loading * {
+    transition: none !important;
+  }
+
+  /* Smooth color transitions when switching themes */
+  :root {
+    color-scheme: light dark; /* Enables native dark mode scrollbars */
+  }
+
+  :root.dark {
+    color-scheme: dark;
+  }
+
+  * {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
   /* Respect user's motion preferences */
   @media (prefers-reduced-motion: reduce) {
     *,
